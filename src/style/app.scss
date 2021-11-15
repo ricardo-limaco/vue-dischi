@@ -1,0 +1,53 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~@fontsource/montserrat/index.css";
+@import "~@fontsource/montserrat/600.css";
+@import "~@fontsource/montserrat/700.css";
+
+@import "variables.scss";
+
+header {
+  background-color: $bg-color;
+  padding: 15px 20px;
+  img {
+    width: 45px;
+  }
+}
+
+body {
+  background-color: #192d3b;
+  font-family: $main-font;
+}
+
+
+._card-container {
+  background-color: $bg-color;
+  width: calc(100% / 5 - 35px);
+  text-align: center;
+  padding: 22px;
+
+  ._card-img {
+    width: 100%;
+  }
+
+  ._card-title{
+    color: white;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 700;
+    padding-top: $padding-text;
+    margin: 0;
+  }
+
+  ._card-author{
+    color: $text-grey;
+    font-size: 18px;
+    padding-top: $padding-text;
+    margin: 0;
+  }
+
+  ._card-year{
+    color: $text-grey;
+    font-size: 16px;
+    margin: 0;
+  }
+}
