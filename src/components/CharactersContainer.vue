@@ -16,6 +16,7 @@
       </div>
     </div>
 
+    <Loader v-if="loading === true"></Loader>
   </div>
 </template>
 
@@ -25,27 +26,34 @@
 <script>
 import axios from "axios";
 import CharacterCard from "./CharacterCard.vue";
+import Loader from "./Loader.vue";
+
 
 export default {
   name: "CharactersContainer",
-  components: { CharacterCard },
+  components: { CharacterCard, Loader },
   data() {
     return {
       charactersList: [],
       loading: true,
+      api: "https://flynn.boolean.careers/exercises/api/array/music"
     };
   },
+
   methods: {
-    fetchData(url) {
+    fetchData() {
       this.loading = true;
 
-      axios.get(url).then((resp) => {
+      axios.get(this.api).then((resp) => {
         this.charactersList = resp.data.response;
+        this.loading = false;
+
       });
     },
   },
+
   mounted() {
-    this.fetchData("https://flynn.boolean.careers/exercises/api/array/music");
+    setTimeout(this.fetchData, 500);
   },
 };
 </script>
